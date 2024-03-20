@@ -94,7 +94,6 @@ class App(QWidget):
         plt.cla() #clean plot
         self.canvas1.draw() #update plot
         self.Run()
-        #self.fname_main='Ioni-Daten/2022-07-21.csv'
         # Button Event
         self.button_plotday.clicked.connect(self.clicked) 
        
@@ -110,7 +109,7 @@ class App(QWidget):
     def read_fname(self):
         self.fname_main=str(self.input_plotday.displayText()) #read text from input
         print(self.fname_main)
-        check_exists=path.exists('Ioni-Daten/'+ self.fname_main +'.csv')   #check if path exists
+        check_exists=path.exists('Ioni-data/'+ self.fname_main +'.csv')   #check if path exists
         return check_exists
         
 
@@ -142,7 +141,7 @@ class App(QWidget):
         self.output.setText(str(pressure))
 
         self.CheckDay()                    
-        with open ('Ioni-Daten/'+filename + ".csv", "a") as f: #Create a new file if it does not exist:
+        with open ('Ioni-data/'+filename + ".csv", "a") as f: #Create a new file if it does not exist:
             writer= csv.writer(f, delimiter=",")
             writer.writerow([time.strftime("%H:%M:%S", time.localtime()),pressure])
 
@@ -215,7 +214,7 @@ class SubWindow(QWidget):
         self.fname = fname
         #print(self.fname)     
         
-        data = pd.read_csv('Ioni-Daten/'+ self.fname +'.csv', sep=',',header=None)
+        data = pd.read_csv('Ioni-data/'+ self.fname +'.csv', sep=',',header=None)
         time_str = data[0]
         time = [datetime.strptime(x, '%H:%M:%S') for x in time_str] #Reformatting the data from string to something else
         pressure = data[1]
