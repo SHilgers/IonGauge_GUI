@@ -28,7 +28,7 @@ filename=False
 time_list=[0]*1200 #list of 1200 Zeros, data of 20 minutes
 pressure_list=[0]*1200
 
-#commonication with moxa
+#communication with moxa
 serverHost='129.217.168.64'
 serverPort= 4003
 s=socket(AF_INET, SOCK_STREAM) #create a TCP socket
