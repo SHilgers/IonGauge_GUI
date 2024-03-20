@@ -38,7 +38,7 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
         self.layout = QGridLayout(self)
-        self.setWindowTitle("Druckauslese")   
+        self.setWindowTitle("Ioni GUI")
         self.left = 100
         self.top = 10
         self.width =1000
@@ -46,7 +46,7 @@ class App(QWidget):
         self.sub_window = None
 
 
-        self.label = QLabel("Druck/mbar",self)
+        self.label = QLabel("pressure/mbar",self)
         #self.label.setAlignment(Qt.AlignCenter)
         self.label.setStyleSheet("QLabel { font-size: 25pt; font-weight: 600}")
         #self.label.setStyleSheet(f'font-weight: {600}')
@@ -170,8 +170,8 @@ class App(QWidget):
         self.figure1.clf()
         ax=self.figure1.add_subplot()
         ax.plot(time_list,pressure_list)
-        ax.set_xlabel("Zeit")
-        ax.set_ylabel("Druck in mbar")
+        ax.set_xlabel("time")
+        ax.set_ylabel("pressure in mbar")
         ax.set_yscale('log')
         ax.xaxis.set_major_locator(plt.MaxNLocator(7))
         self.canvas1.draw_idle()
@@ -225,8 +225,8 @@ class SubWindow(QWidget):
         ax.plot(time, pressure)
         date_form = mdates.DateFormatter("%H:%M")
         ax.xaxis.set_major_formatter(date_form)
-        ax.set_xlabel("Zeit")
-        ax.set_ylabel("Druck in mbar")
+        ax.set_xlabel("time")
+        ax.set_ylabel("pressure in mbar")
         ax.set_title(self.fname)
         ax.set_yscale('log')
         #plt.grid(which='major', axis='both')
