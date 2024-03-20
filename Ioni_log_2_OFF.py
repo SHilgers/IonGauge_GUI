@@ -58,7 +58,7 @@ class App(QWidget):
         self.output.setAlignment(Qt.AlignCenter)
 
         self.button_plotday=QPushButton('Plot Day', self)
-        self.label_plotday=QLabel('Plotte Tag: YYYY-MM-DD')
+        self.label_plotday=QLabel('Plot day: YYYY-MM-DD')
         self.input_plotday=QLineEdit(self)    
     
 
